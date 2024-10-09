@@ -1,15 +1,17 @@
+"""Main application module."""
+
+
 class App:
+    """Main application class."""
+
     @staticmethod
     def start() -> None:
+        """Command to start the application."""
         print("Hello World. Type 'exit' to exit.")
-        
+
         while True:
             user_input = input(">>> ")
             if user_input.lower() == "exit":
                 print("Exiting...")
                 break
-            else:
-                # Here, you could add additional commands and their handling
-                print("Unknown command. Type 'exit' to exit.")
-
-        
+            print("Unknown command. Type 'exit' to exit.")
