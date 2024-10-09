@@ -1,17 +1,23 @@
 """Main application module."""
 
+from app.commands import CommandHandler
+from app.commands.greet import GreetCommand
+from app.commands.menu import MenuCommand
+from app.commands.exit import ExitCommand
+
 
 class App:
     """Main application class."""
 
-    @staticmethod
-    def start() -> None:
-        """Command to start the application."""
-        print("Hello World. Type 'exit' to exit.")
+    def __init__(self):  # Constructor
+        self.command_handler = CommandHandler()
 
-        while True:
-            user_input = input(">>> ")
-            if user_input.lower() == "exit":
-                print("Exiting...")
-                break
-            print("Unknown command. Type 'exit' to exit.")
+    def start(self):
+        """Start the application."""
+        self.command_handler.register_command("greet", GreetCommand())
+        self.command_handler.register_command("menu", MenuCommand())
+        self.command_handler.register_command("exit", ExitCommand())
+
+        print("Type 'exit' to exit.")
+        while True:  # REPL Read, Evaluate, Print, Loop
+            self.command_handler.execute_command(input(">>> ").strip())
