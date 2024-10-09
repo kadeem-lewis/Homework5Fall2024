@@ -15,7 +15,7 @@ class App:
     def start(self):
         """Start the application."""
         self.command_handler.register_command("greet", GreetCommand())
-        self.command_handler.register_command("menu", MenuCommand())
+        self.command_handler.register_command("menu", MenuCommand(self.command_handler))
         self.command_handler.register_command("exit", ExitCommand())
 
         print("Type 'exit' to exit.")
