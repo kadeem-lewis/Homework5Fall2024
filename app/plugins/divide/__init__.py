@@ -9,4 +9,4 @@ class DivideCommand(Command):
 
     def execute(self, num_one, num_two):
         """Divide two numbers"""
-        return Calculator.divide(num_one, num_two)
+        print(Calculator.divide(num_one, num_two))

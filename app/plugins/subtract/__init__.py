@@ -9,4 +9,4 @@ class SubtractCommand(Command):
 
     def execute(self, num_one, num_two):
         """Subtract two numbers"""
-        return Calculator.subtract(num_one, num_two)
+        print(Calculator.subtract(num_one, num_two))

@@ -9,4 +9,4 @@ class MultiplyCommand(Command):
 
     def execute(self, num_one, num_two):
         """Multiply two numbers"""
-        return Calculator.multiply(num_one, num_two)
+        print(Calculator.multiply(num_one, num_two))
