@@ -3,7 +3,7 @@
 from app.commands import Command
 
 
-class GitHubCommand(Command):
+class GithubCommand(Command):
     """Command to show link to GitHub repository."""
 
     def execute(self):
