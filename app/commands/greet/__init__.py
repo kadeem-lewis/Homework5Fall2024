@@ -7,4 +7,4 @@ class GreetCommand(Command):
     """Command to greet the user"""
 
     def execute(self):
-        print("Hello, world!")
+        print("Hello, World!")
