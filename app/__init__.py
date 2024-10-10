@@ -1,5 +1,6 @@
 """Main application module."""
 
+from fractions import Fraction
 import pkgutil
 import importlib
 from app.commands import CommandHandler, Command
@@ -50,4 +51,20 @@ class App:
 
         print("Type 'exit' to exit.")
         while True:  # REPL Read, Evaluate, Print, Loop
-            self.command_handler.execute_command(input(">>> ").strip())
+            command = (
+                input(
+                    "Enter a command (add, subtract, multiply, divide) or 'exit' to quit: "
+                )
+                .strip()
+                .lower()
+            )
+            if command in ["exit", "menu"]:
+                self.command_handler.execute_command(command)
+                continue
+            try:
+                number_one = Fraction(input("Enter first number: "))
+                number_two = Fraction(input("Enter second number: "))
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+                continue
+            self.command_handler.execute_command(command, number_one, number_two)
