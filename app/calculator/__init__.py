@@ -1,8 +1,8 @@
 "Main calculator code"
 from fractions import Fraction
-from calculator.operations import add, subtract, multiply, divide
-from calculator.calculation import Calculation, OperationFunction
-from calculator.history import History
+from app.calculator.operations import add, subtract, multiply, divide
+from app.calculator.calculation import Calculation, OperationFunction
+from app.calculator.history import History
 
 
 class Calculator:

@@ -1,7 +1,7 @@
 """Module to hold the history of all calculations performed by the calculator."""
 
 from typing import List, Optional
-from calculator.calculation import Calculation
+from app.calculator.calculation import Calculation
 
 
 class History:

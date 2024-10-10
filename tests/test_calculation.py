@@ -1,6 +1,6 @@
 from fractions import Fraction
-from calculator import Calculation
-from calculator.operations import add
+from app.calculator import Calculation
+from app.calculator.operations import add
 
 
 def test_calculation(var_one, var_two, operation, expected):

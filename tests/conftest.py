@@ -3,7 +3,7 @@
 # conftest.py
 from fractions import Fraction
 from faker import Faker
-from calculator.operations import add, subtract, multiply, divide
+from app.calculator.operations import add, subtract, multiply, divide
 
 fake = Faker()
 

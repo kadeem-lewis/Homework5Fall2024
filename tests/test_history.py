@@ -1,9 +1,9 @@
 """Testing the History class"""
 
 from fractions import Fraction
-from calculator.history import History
-from calculator.operations import add, subtract, multiply, divide
-from calculator.calculation import Calculation
+from app.calculator.history import History
+from app.calculator.operations import add, subtract, multiply, divide
+from app.calculator.calculation import Calculation
 
 
 class TestHistory:

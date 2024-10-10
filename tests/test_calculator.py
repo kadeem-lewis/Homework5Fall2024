@@ -1,7 +1,7 @@
 """Testing Calculator"""
 
 from fractions import Fraction
-from calculator import Calculator
+from app.calculator import Calculator
 
 
 def test_addition():

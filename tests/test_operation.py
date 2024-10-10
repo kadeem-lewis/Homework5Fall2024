@@ -2,7 +2,7 @@
 
 from fractions import Fraction
 import pytest
-from calculator import add, subtract, divide, multiply
+from app.calculator import add, subtract, divide, multiply
 
 
 def test_addition():
