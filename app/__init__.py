@@ -53,7 +53,7 @@ class App:
         while True:  # REPL Read, Evaluate, Print, Loop
             command = (
                 input(
-                    "Enter a command (add, subtract, multiply, divide) or 'exit' to quit: "
+                    "Enter a command (add, subtract, multiply, divide),  'exit' to quit or 'menu' to see available commands: "
                 )
                 .strip()
                 .lower()
