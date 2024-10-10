@@ -1,14 +1,14 @@
 """This module contains the Command and CommandHandler classes"""
 
 from abc import ABC, abstractmethod
-import logging
+from fractions import Fraction
 
 
 class Command(ABC):
     """Abstract base class for commands."""
 
     @abstractmethod
-    def execute(self):
+    def execute(self, *args):
         """Base method for executing a command."""
 
 
@@ -22,9 +22,9 @@ class CommandHandler:
         """Register a command with the handler."""
         self.commands[command_name] = command
 
-    def execute_command(self, command_name: str):
+    def execute_command(self, command_name: str, *args):
         """Execute a command by name."""
         try:
-            self.commands[command_name].execute()
+            self.commands[command_name].execute(*args)
         except KeyError:
             print(f"No such command: {command_name}")
