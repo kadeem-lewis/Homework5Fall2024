@@ -97,5 +97,6 @@ class App:
                 number_two = Fraction(input("Enter second number: "))
             except ValueError:
                 print("Invalid input. Please enter a number.")
+                logging.error("Invalid input. Please enter a number.")
                 continue
             self.command_handler.execute_command(command, number_one, number_two)
