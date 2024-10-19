@@ -1,5 +1,6 @@
 """This module contains the Command and CommandHandler classes"""
 
+import logging
 from abc import ABC, abstractmethod
 from fractions import Fraction
 
@@ -28,3 +29,4 @@ class CommandHandler:
             self.commands[command_name].execute(*args)
         except KeyError:
             print(f"No such command: {command_name}")
+            logging.error("No such command: %s", command_name)

@@ -1,5 +1,6 @@
 """Add command plugin"""
 
+import logging
 from app.commands import Command
 from app.calculator import Calculator
 
@@ -9,4 +10,6 @@ class AddCommand(Command):
 
     def execute(self, num_one, num_two):
         """Add two numbers"""
-        print(Calculator.add(num_one, num_two))
+        result = Calculator.add(num_one, num_two)
+        print(result)
+        logging.info(result)

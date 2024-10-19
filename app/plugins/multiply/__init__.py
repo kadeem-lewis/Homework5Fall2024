@@ -1,5 +1,6 @@
 """Multiply command plugin"""
 
+import logging
 from app.commands import Command
 from app.calculator import Calculator
 
@@ -9,4 +10,6 @@ class MultiplyCommand(Command):
 
     def execute(self, num_one, num_two):
         """Multiply two numbers"""
-        print(Calculator.multiply(num_one, num_two))
+        result = Calculator.multiply(num_one, num_two)
+        print(result)
+        logging.info(result)

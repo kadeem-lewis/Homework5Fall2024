@@ -1,8 +1,13 @@
 """Main application module."""
 
+import os
+import sys
 from fractions import Fraction
+import logging
+import logging.config
 import pkgutil
 import importlib
+from dotenv import load_dotenv
 from app.commands import CommandHandler, Command
 
 
@@ -10,7 +15,33 @@ class App:
     """Main application class."""
 
     def __init__(self):
+        os.makedirs("logs", exist_ok=True)
+        self.configure_logging()
+        load_dotenv()
+        self.settings = self.load_environment_variables()
+        self.settings.setdefault("ENVIRONMENT", "PRODUCTION")
         self.command_handler = CommandHandler()
+
+    def configure_logging(self):
+        """Configure logging."""
+        logging_conf_path = "logging.conf"
+        if os.path.exists(logging_conf_path):
+            logging.config.fileConfig(logging_conf_path, disable_existing_loggers=False)
+        else:
+            logging.basicConfig(
+                level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+            )
+        logging.info("Logging configured.")
+
+    def load_environment_variables(self):
+        """Load environment variables."""
+        settings = {key: value for key, value in os.environ.items()}
+        logging.info("Environment variables loaded.")
+        return settings
+
+    def get_environment_variable(self, env_var: str = "ENVIRONMENT"):
+        """Get an environment variable."""
+        return self.settings.get(env_var, None)
 
     def load_plugins(self):
         """Dynamically load all plugins in the plugins directory"""
@@ -49,7 +80,7 @@ class App:
         """Start the application."""
         self.load_plugins()
 
-        print("Type 'exit' to exit.")
+        logging.info("Type 'exit' to exit.")
         while True:  # REPL Read, Evaluate, Print, Loop
             command = (
                 input(
@@ -66,5 +97,6 @@ class App:
                 number_two = Fraction(input("Enter second number: "))
             except ValueError:
                 print("Invalid input. Please enter a number.")
+                logging.error("Invalid input. Please enter a number.")
                 continue
             self.command_handler.execute_command(command, number_one, number_two)

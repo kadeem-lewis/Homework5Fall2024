@@ -1,3 +1,6 @@
+"""Module to display the list of available commands."""
+
+import logging
 from app.commands import Command, CommandHandler
 
 
@@ -14,6 +17,6 @@ class MenuCommand(Command):
             if not command_name.isdigit()
         ]
         if commands_list:
-            print("Available commands:")
+            logging.info("Available commands:")
             for index, command_name in enumerate(commands_list, start=1):
                 print(f"{index}. {command_name}")
