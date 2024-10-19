@@ -1,5 +1,6 @@
 """Subtract command plugin"""
 
+import logging
 from app.commands import Command
 from app.calculator import Calculator
 
@@ -9,4 +10,6 @@ class SubtractCommand(Command):
 
     def execute(self, num_one, num_two):
         """Subtract two numbers"""
-        print(Calculator.subtract(num_one, num_two))
+        result = Calculator.subtract(num_one, num_two)
+        print(result)
+        logging.info(result)
